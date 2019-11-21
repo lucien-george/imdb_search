@@ -1,0 +1,32 @@
+<div class="container my-5">
+  <%= form_tag movies_path, method: :get do %>
+    <div class="d-flex justify-content-center align-items-center mb-5 w-100">
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a movie"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <div id="movies">
+        <% @movies.each do |movie| %>
+          <h4><%= movie.title %></h4>
+          <p><%= movie.syllabus %></p>
+          <hr>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Iterate over the results when using multisearch -->
+<%# results.each do |result| %>
+  <%# if result.searchable_type == "Movie" %>
+    <!-- code for movie instances -->
+  <%# else %>
+    <!-- code for tv show instances -->
+  <%# end %>
+<%# end %>
